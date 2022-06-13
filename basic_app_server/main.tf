@@ -17,6 +17,12 @@ resource "aws_instance" "app_server" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.app_server_security_group.id]
 
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello world" > index.html
+              nohup busybox httpd -f -p ${var.server_port} &
+              EOF
+
   tags = {
     Name = "app_server_ec2"
     Description = "infrastructure module for logamic interview"
