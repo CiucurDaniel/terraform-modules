@@ -21,7 +21,7 @@ This is a topic [discussed in the Terragrunt community](https://github.com/grunt
 As a personal opinion I would favor `many modules per repo` because in the end, you will end up having many modules. Therefore, you will end 
 up with many repositories and searching globally between modules will become very hard and also the management of that many repositories will be pretty hard.
 
-However, I believe this is something to be discussed at a team level considering the project requirements, tools and decision made along the way.
+However, I believe this is something to be discussed at a team level considering the project requirements, tools and decisions made along the way.
 
 
 ### Commands
