@@ -17,13 +17,10 @@ resource "aws_instance" "app_server" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.app_server_security_group.id]
 
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello world" > index.html
-              echo "The current evironment is: ${var.environment}" >> index.html
-              echo "My port is ${var.server_port}" >> index.html
-              nohup busybox httpd -f -p ${var.server_port} &
-              EOF
+  user_data = templatefile("${path.module}/server.sh", {
+    environment = var.environment
+    server_port = var.server_port
+  })
 
   tags = {
     Name = "app_server_ec2"

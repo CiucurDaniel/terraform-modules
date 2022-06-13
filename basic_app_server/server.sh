@@ -1,6 +1,5 @@
 #!/bin/bash
-sudo su
-yum -y install httpd
-echo "<p> EC2 instance is here </p>" >> /var/www/html/index.html
-sudo systemctl enable httpd
-sudo systemctl start httpd
+echo "Hello world" > index.html
+echo " The current evironment is: ${environment}" >> index.html
+echo "/n  My port is ${server_port}" >> index.html
+nohup busybox httpd -f -p "${server_port}" &
