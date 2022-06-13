@@ -14,7 +14,7 @@ terraform {
 
 resource "aws_instance" "app_server" {
   ami = var.ami_id
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.app_server_security_group.id]
 
   tags = {
@@ -23,6 +23,9 @@ resource "aws_instance" "app_server" {
     Environment = var.environment
   }
 }
+
+# By default no traffic is allowed incoming/outgoing from EC2
+# therefore, configure a security_group to allow traffic on port var.server_port
 
 resource "aws_security_group" "app_server_security_group" {
   name = "app_server_security_group"
