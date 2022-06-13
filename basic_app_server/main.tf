@@ -28,7 +28,7 @@ resource "aws_security_group" "app_server_security_group" {
   name = "app_server_security_group"
 
   ingress {
-    protocol = "HTTP"
+    protocol = "tcp"
     from_port = var.server_port
     to_port = var.server_port
     cidr_blocks = ["0.0.0.0/0"]
