@@ -20,6 +20,8 @@ resource "aws_instance" "app_server" {
   user_data = <<-EOF
               #!/bin/bash
               echo "Hello world" > index.html
+              echo "The current evironment is: ${var.environment}" > index.html
+              echo "My port is ${var.server_port}" > index.html
               nohup busybox httpd -f -p ${var.server_port} &
               EOF
 

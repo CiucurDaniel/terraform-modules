@@ -13,6 +13,8 @@ terraform apply
 
 // find out different values form output, usefull for automated scripts
 terraform output public_ip
+
+curl Public IPv4 address:server_port
 ```
 
 
