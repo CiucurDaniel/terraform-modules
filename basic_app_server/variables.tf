@@ -19,3 +19,7 @@ variable "server_port" {
   type        = number
   default = 8080
 }
+
+variable "company" {
+  description = "This variable should hold the company whose infrastructure is being deployed."
+}

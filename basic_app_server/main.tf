@@ -26,6 +26,7 @@ resource "aws_instance" "app_server" {
     Name = "app_server_ec2"
     Description = "infrastructure module for logamic interview"
     Environment = var.environment
+    Company = var.company
   }
 }
 
